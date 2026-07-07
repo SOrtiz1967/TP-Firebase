@@ -32,6 +32,7 @@ export const OrdersTable = ({ orders, page, onPage }: Props) => {
           <thead>
             <tr className="border-b border-neutral-800 bg-[#1a1a1a]">
               <th className="px-4 py-3 font-mono text-xs uppercase tracking-widest text-[#8a8a8a]">ID Transacción</th>
+              <th className="px-4 py-3 font-mono text-xs uppercase tracking-widest text-[#8a8a8a]">Comprador</th>
               <th className="px-4 py-3 font-mono text-xs uppercase tracking-widest text-[#8a8a8a]">Fecha</th>
               <th className="px-4 py-3 font-mono text-xs uppercase tracking-widest text-[#8a8a8a]">Ítems</th>
               <th className="px-4 py-3 font-mono text-xs uppercase tracking-widest text-[#8a8a8a]">Total</th>
@@ -45,6 +46,17 @@ export const OrdersTable = ({ orders, page, onPage }: Props) => {
               >
                 <td className="max-w-[180px] break-all px-4 py-3 font-mono text-xs text-[#ff9d00]">
                   {o.transaccionId}
+                </td>
+                <td className="px-4 py-3">
+                  {o.comprador ? (
+                    <div className="flex flex-col gap-0.5">
+                      <span className="font-sans text-xs text-[#f3f3f3]">{o.comprador.nombre}</span>
+                      <span className="font-mono text-[10px] text-[#8a8a8a]">{o.comprador.email}</span>
+                      <span className="font-mono text-[10px] text-[#4a4a4a]">{o.comprador.telefono}</span>
+                    </div>
+                  ) : (
+                    <span className="font-mono text-xs text-[#4a4a4a]">—</span>
+                  )}
                 </td>
                 <td className="whitespace-nowrap px-4 py-3 font-mono text-xs text-[#8a8a8a]">
                   {formatDate(o.creadoEn)}

@@ -13,6 +13,7 @@
     "deploy:hosting": "npm run build && firebase deploy --only hosting"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "firebase": "^12.15.0",
     "lucide-react": "^1.23.0",
     "react": "^19.2.7",

@@ -2,14 +2,13 @@ import { Loader2 } from 'lucide-react'
 
 interface Props {
   total: number
-  onConfirm: () => void
   isSubmitting: boolean
   error: string | null
 }
 
 const formatPrice = (n: number) => '$ ' + n.toLocaleString('es-AR')
 
-export const CartSummary = ({ total, onConfirm, isSubmitting, error }: Props) => (
+export const CartSummary = ({ total, isSubmitting, error }: Props) => (
   <div className="border border-neutral-800 bg-[#1a1a1a] p-6 flex flex-col gap-4">
     <p className="font-mono text-xs uppercase tracking-widest text-[#8a8a8a]">
       Resumen
@@ -27,7 +26,7 @@ export const CartSummary = ({ total, onConfirm, isSubmitting, error }: Props) =>
     )}
 
     <button
-      onClick={onConfirm}
+      type="submit"
       disabled={isSubmitting}
       className="flex items-center justify-center gap-2 bg-[#dd3b3b] px-6 py-3 font-sans text-sm font-medium text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
     >
@@ -37,7 +36,7 @@ export const CartSummary = ({ total, onConfirm, isSubmitting, error }: Props) =>
           <span>Procesando…</span>
         </>
       ) : (
-        'Confirmar Orden'
+        'Finalizar compra'
       )}
     </button>
   </div>

@@ -8,7 +8,7 @@ import {
   type Unsubscribe,
 } from 'firebase/firestore'
 import { db } from './firebase'
-import type { Compra, CompraItem } from '../types'
+import type { Compra, CompraItem, DatosComprador } from '../types'
 
 const COL = 'compras'
 
@@ -17,6 +17,7 @@ export interface CreateOrderPayload {
   items: CompraItem[]
   total: number
   estado: 'simulado'
+  comprador: DatosComprador
 }
 
 export const createOrder = (payload: CreateOrderPayload) =>

@@ -35,6 +35,13 @@ export interface CartItem {
 }
 
 // ── Compras ───────────────────────────────────────────────────────────────────
+export interface DatosComprador {
+  nombre: string
+  email: string
+  telefono: string
+  notas?: string
+}
+
 export interface CompraItem {
   productoId: string
   nombre: string    // snapshot al momento de comprar
@@ -45,10 +52,11 @@ export interface CompraItem {
 
 export interface Compra {
   id: string
-  transaccionId: string   // "SIM-{timestamp}-{random}" en Fase 1
+  transaccionId: string
   items: CompraItem[]
   total: number
-  estado: 'simulado'      // Fase 2 agrega 'pagado'
+  estado: 'simulado'
+  comprador?: DatosComprador   // opcional para compatibilidad con órdenes viejas
   creadoEn: Timestamp
 }
 
